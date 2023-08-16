@@ -1,0 +1,13 @@
+.dockerignore
+.git
+.gitignore
+.scannerwork
+.vscode
+Dockerfile*
+docs
+LICENSE
+node_modules
+npm-debug.log
+README.md
+tests
+tmp

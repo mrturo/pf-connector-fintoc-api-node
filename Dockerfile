@@ -1,0 +1,13 @@
+FROM node:18-alpine
+LABEL maintainer 'Arturo Mendoza <arturo.amb89@gmail.com>'
+RUN apk add dumb-init
+WORKDIR /app
+ENV NODE_ENV=${NODE_ENV}
+COPY package*.json ./
+RUN npm cache clean --force
+RUN npm install -g typescript
+RUN npm install -g ts-node
+RUN npm run install:production
+COPY . /app
+RUN npm run build
+CMD [ "npm", "start" ]

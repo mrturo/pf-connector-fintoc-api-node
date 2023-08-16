@@ -1,0 +1,65 @@
+openapi: 3.0.1
+
+info:
+  version: '1.0.0'
+  title: 'Personal Finance: Connector Fintoc API Node'
+  description: |
+    Personal Finance: Connector Fintoc API Node
+  contact:
+    name: Support
+    email: arturo.amb89@gmail.com
+
+servers:
+  - url: http://localhost:3000/
+    description: Local development
+
+tags:
+  - name: 'Base'
+    description: 'Healthcheck'
+
+paths:
+  /:
+    get:
+      tags:
+        - 'Base'
+      summary: 'Obtain API health check information'
+      responses:
+        '200':
+          description: 'Health Check Response'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'pf-connector-fintoc-api-node'
+                  uptime:
+                    type: string
+                    example: '1 hora, 8 minutos, 4,294 segundos'
+components:
+  schemas:
+    BadResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Malformed request
+    NotFoundResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Not found
+    NotAllowedResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Not allowed
+    InternalErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
